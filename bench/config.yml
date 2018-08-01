@@ -5,9 +5,13 @@ environment:
   MYSQL_URL: root@localhost
 deps:
   docker:
-    - container_name: postgres
-      image: postgres:9.6.6-alpine
-    - container_name: mysql
-      image: mysql:5.7.20
+    - image: postgres:9.6.6-alpine
+      container_name: postgres
+      wait:
+        port: 5432
+    - image: mysql:5.7.20
+      container_name: mysql
       environment:
         MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      wait:
+        port: 3306
