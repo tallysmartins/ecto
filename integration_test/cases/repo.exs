@@ -30,7 +30,7 @@ defmodule Ecto.Integration.RepoTest do
   end
 
   test "fetch with in" do
-    TestRepo.insert!(%Post{title: "hello"})
+    TestRepo.insert!(%Post{title: "hello", scores: %{"50" => 416500.0}})
 
     # Works without the query cache.
     assert_raise Ecto.Query.CastError, fn ->

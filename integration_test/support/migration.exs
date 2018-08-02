@@ -21,6 +21,7 @@ defmodule Ecto.Integration.Migration do
       add :visits, :integer
       add :intensity, :float
       add :author_id, :integer
+      add :scores, {:map, :float}
       add :posted, :date
       timestamps(null: true)
     end
